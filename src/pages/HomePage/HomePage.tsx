@@ -1,21 +1,29 @@
+import { uniqueId } from "@tldraw/tldraw";
 import { useNavigate } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
+import Button from "@mui/material/Button";
+import { Editor } from "../../widgets";
 
-const HomePage = () => {
+const CreateSharedProjectButton = () => {
   const navigate = useNavigate();
 
   function handleStartMultiPlayerMode() {
-    const uuid = uuidv4();
-    navigate(`/shared/${uuid}`);
+    const id = uniqueId();
+    navigate(`/shared/${id}`);
   }
-
   return (
-    <div>
-      <button onClick={handleStartMultiPlayerMode}>
-        Create new sharable project
-      </button>
-    </div>
+    <Button
+      sx={{ pointerEvents: "all", display: "flex" }}
+      variant="contained"
+      size="small"
+      onClick={handleStartMultiPlayerMode}
+    >
+      Create shared project
+    </Button>
   );
+};
+
+const HomePage = () => {
+  return <Editor shareZone={<CreateSharedProjectButton />} />;
 };
 
 export default HomePage;

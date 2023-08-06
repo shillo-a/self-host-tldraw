@@ -2,11 +2,9 @@ import { useParams } from "react-router-dom";
 import { YjsEditor } from "../../widgets";
 
 const RoomPage = () => {
-  const { uuid } = useParams();
-
-  if (!uuid) return <>Требуется uuid</>;
-
-  return <YjsEditor roomId={uuid} />;
+  const { id } = useParams();
+  if (!id) return <>Требуется id</>;
+  return <YjsEditor roomId={id} />;
 };
 
 export default RoomPage;

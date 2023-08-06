@@ -4,15 +4,14 @@ import { useYjsStore } from "../../features";
 
 import style from "./YjsEditor.module.css";
 import { useNavigate } from "react-router-dom";
+import { Button, Grid } from "@mui/material";
 
-const HOST_URL = "ws://localhost:9999";
+const HOST_URL = "ws://localhost:1234";
 
 interface YjsEditorProps {
   roomId: string;
 }
 export default function YjsEditor({ roomId }: YjsEditorProps) {
-  const navigate = useNavigate();
-
   const store = useYjsStore({
     roomId,
     hostUrl: HOST_URL,
@@ -24,15 +23,20 @@ export default function YjsEditor({ roomId }: YjsEditorProps) {
         autoFocus
         store={store}
         shareZone={
-          <>
-            <NameEditor />
-            <button
-              onClick={() => navigate("/")}
-              style={{ pointerEvents: "all", display: "flex" }}
-            >
-              На главную
-            </button>
-          </>
+          <Grid
+            container
+            spacing={1}
+            direction="column"
+            alignItems="end"
+            justifyContent="end"
+          >
+            <Grid item>
+              <NameEditor />
+            </Grid>
+            <Grid item>
+              <ReturnToHomePageButton />
+            </Grid>
+          </Grid>
         }
       />
     </div>
@@ -66,3 +70,17 @@ const NameEditor = track(() => {
     </div>
   );
 });
+
+const ReturnToHomePageButton = () => {
+  const navigate = useNavigate();
+  return (
+    <Button
+      sx={{ pointerEvents: "all", display: "flex" }}
+      variant="contained"
+      size="small"
+      onClick={() => navigate("/")}
+    >
+      To Home Page
+    </Button>
+  );
+};

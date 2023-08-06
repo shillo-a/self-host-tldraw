@@ -1,10 +1,16 @@
-import { Tldraw } from "@tldraw/tldraw";
+import { Tldraw, TldrawUiProps } from "@tldraw/tldraw";
 import "@tldraw/tldraw/tldraw.css";
+import style from "./Editor.module.css";
 
-export default function Editor() {
+interface EditorProps extends TldrawUiProps {}
+export default function Editor({ shareZone }: EditorProps) {
   return (
-    <div className="tldraw__editor">
-      <Tldraw persistenceKey="tldraw_example" autoFocus />
+    <div className={style.tldraw__editor}>
+      <Tldraw
+        persistenceKey="tldraw_basic_editor"
+        autoFocus
+        shareZone={shareZone}
+      />
     </div>
   );
 }

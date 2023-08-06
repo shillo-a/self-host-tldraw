@@ -125,6 +125,7 @@ export function useYjsStore({
                   yRecords.set(record.id, record);
                 });
 
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 Object.values(changes.updated).forEach(([_, record]) => {
                   yRecords.set(record.id, record);
                 });
@@ -140,6 +141,7 @@ export function useYjsStore({
 
         // Sync the yjs doc changes to the store
         const handleChange = (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           events: Y.YEvent<any>[],
           transaction: Y.Transaction
         ) => {

@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import "normalize.css";
 import { HomePage, RoomPage } from "./pages/index.ts";
 
@@ -10,8 +14,12 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/shared/:uuid/*",
+    path: "/shared/:id/*",
     element: <RoomPage />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
   },
 ]);
 

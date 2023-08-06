@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tldraw/store": "^2.0.0-canary.4012666cab36",
-    "@tldraw/tldraw": "^2.0.0-canary.c7ae756c0b81",
-    "@tldraw/tlschema": "^2.0.0-alpha.8",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.3",
+    "@tldraw/tldraw": "^2.0.0-canary.89914684467c",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
