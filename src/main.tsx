@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "normalize.css";
+import "./index.css";
 import { HomePage, RoomPage } from "./pages/index.ts";
 
 const router = createBrowserRouter([
